@@ -28,13 +28,13 @@ BOT_USERNAME: Final = '@ul_coder_bot'
 async def start_command(update:Update,context:ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Assalomu alaykum! Men Ulug'bekning kotibiman. Nima xizmat?")
 
-
 async def help_command(update:Update,context:ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Nima xizmat dedim...")
-
+    
 
 async def just_command(update:Update,context:ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Eey bilmadim, hozirgi yoshlarga nima bo'lgan...")
+   
 
 # Responses
 def handle_response(text:str):
