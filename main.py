@@ -52,17 +52,72 @@ def handle_response(text:str):
     if "ish" in processed:
         return "Dasturchilik qilib rizqini terib yuribdi..."
     
+    if 'sevgi'  in processed:
+        return """Allohga boʻlgan sevgi va Alloh uchun boʻlgan sevgidan boshqa sevgilar 
+        insonning ruhiyatini botqoqqa botiradi"""
+    
+    if "ulug'bek kimni sevadi" in processed:
+        return "Nima ishingiz bor "
+    
+    if "bitta eshitaylik" in processed:
+        return """
+                Koʻnglingizni menga koʻrsating —
+                Sogʻinchlar sargʻayib ketgani rostmi?
+                Pichoqlar suyakka yetgani rostmi?
+                Siz kabi dunyoga sigʻmagan ozmi?
+                """
+    
+    if "yana bitta" in processed:
+        return """  Osmonning bir uchi ufqqa tutashgan,
+                    Bulutning bir uchi boshqa bulutga.
+                    Shamollar daraxtlar shoxin oʻynashgan,
+                    Oy esa osmonda choʻmgan sukutga. 
+                """
+    
+    if "haligi" in processed:
+        return "Chaynalmang, tez-tez gapiring"
+    
+    if "savol berib ham bo'lmaydimi" in processed:
+        return "Savol berish mumkin, lekin ayrim narsalar haqida so'rash odobsizlikka kiradi"
+
     if "fuc"  in processed:
         return "So'kinma, betarbiya..."
     
+    if "tushunarli" in processed:
+        return "Aylanay sendan, tushunadiganlar kam hozirgi zamonda"
+    
     if "wtf"  in processed:
         return "So'kinma, betarbiya..."
+    
+    if "shunaqa de" in processed:
+        return "shunaqa"
+
+    if "obbo seney" in processed:
+        return "Obbo meney"
+    
+    if "azgincha" in processed:
+        return "Azginchamas jichcha bo'ladi biz tomonlarda"
+    
+    if "pul kerak" in processed:
+        return "Eey jiyan, kimga ham pul kerakmas."
+
+    if "opam" in processed:
+        return "Abdulhafiyz, senmisan uka, nimaga botga bunaqa narsalarni yozyapsan"
        
     if "jigar" in processed:
         return "Yaxshiman jigar, eeh sanam yo'q bo'b ketding 'jigar,jigar' deb"
     
     if "uylangan" in processed:
         return "Yo'q, haliyam yolg'iz, sevgani ham yo'q"
+    
+    if "ha bo'pti" in processed:
+        return "Jahl qilma eee"
+    
+    if "pul" == processed:
+        return "Qanaqa pul?"
+
+    if "tog'a" in processed:
+        return "Nima deysan, jiyan?"
     
     return "Men ba'zi gaplarga javob bera olaman, xolos, azizim..."
 
