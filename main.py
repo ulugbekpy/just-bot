@@ -103,4 +103,4 @@ if __name__ == '__main__':
     app.add_error_handler(error)
 
     print("Polling...")
-    app.run_polling(poll_interval=4)
+    app.run_polling(poll_interval=3)
