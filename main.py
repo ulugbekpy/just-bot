@@ -47,7 +47,7 @@ def handle_response(text:str):
         return "Ha endi, hamma narsaning ham o'z vaqti soati bor."
     
     if "sevgan" in processed:
-        return "Eee so'ramang. ....... degan qizni sevgan..."
+        return "Eee so'ramang. M...... degan qizni sevgan."
     
     if "ish" in processed:
         return "Dasturchilik qilib rizqini terib yuribdi..."
@@ -76,6 +76,15 @@ def handle_response(text:str):
     
     if "haligi" in processed:
         return "Chaynalmang, tez-tez gapiring"
+    
+    if "begim" in processed:
+        return "Yaxshimisan"
+    
+    if "yo'q" in processed:
+        return "Nima bo'ldi? Tinchlikmi?"
+
+    if "yaxshi" in processed:
+        return "Yaxshi ekaningni eshitib xursand bo'ldim."
     
     if "savol berib ham bo'lmaydimi" in processed:
         return "Savol berish mumkin, lekin ayrim narsalar haqida so'rash odobsizlikka kiradi"
