@@ -48,6 +48,10 @@ def handle_sarvar(text:str):
 def handle_me(text:str):
     return "Sen qanaqa odamsan o'zi?"
 
+def handle_Abdulhafiyz(text:str):
+    return """Ukam, xafa bo'lish yo'q. Bu bot senga faqat shunday javob beradi.
+    Opam desang ham, boshqa gap yozsang ham..."""
+
 def handle_response(text:str):
     processed: str = text.lower()
 
@@ -104,9 +108,6 @@ def handle_response(text:str):
     
     if "haligi" in processed:
         return "Chaynalmang, tez-tez gapiring"
-    
-    if "begim" in processed:
-        return "Yaxshimisan"
     
     if "yo'q" in processed:
         return "Nima bo'ldi? Tinchlikmi?"
@@ -212,6 +213,8 @@ async def handle_message(update:Update,context: ContextTypes.DEFAULT_TYPE):
             response: str = handle_sarvar(text)
     elif update.message.chat.id == 5409405494:
             response: str = handle_me(text)
+    elif update.message.chat.id == 5178629757:
+            response: str = handle_Abdulhafiyz(text)
     else:
         response: str = handle_response(text)
 
