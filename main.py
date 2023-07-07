@@ -1,6 +1,7 @@
 from typing import Final
 from telegram import Update
-from telegram.ext import Application, CommandHandler, MessageHandler,filters,ContextTypes
+from telegram.ext import (Application, CommandHandler,
+                          MessageHandler,filters,ContextTypes)
 
 import environ
 import os
@@ -34,9 +35,19 @@ async def help_command(update:Update,context:ContextTypes.DEFAULT_TYPE):
 
 async def just_command(update:Update,context:ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Eey bilmadim, hozirgi yoshlarga nima bo'lgan...")
+
+async def rostmi_command(update:Update,context:ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("""Koʻnglingizni menga koʻrsating —
+            Sogʻinchlar sargʻayib ketgani rostmi?""")
    
 
 # Responses
+def handle_sarvar(text:str):
+    return "Sarvarbek nima gap uka? Nima deb yozsezam shu javob qayto'radi endi."
+
+def handle_me(text:str):
+    return "Sen qanaqa odamsan o'zi?"
+
 def handle_response(text:str):
     processed: str = text.lower()
 
@@ -49,23 +60,40 @@ def handle_response(text:str):
     if "sevgan" in processed:
         return "Eee so'ramang. M...... degan qizni sevgan."
     
-    if "ish" in processed:
+    if "ma ish" in processed:
         return "Dasturchilik qilib rizqini terib yuribdi..."
     
     if 'sevgi'  in processed:
         return """Allohga boʻlgan sevgi va Alloh uchun boʻlgan sevgidan boshqa sevgilar 
         insonning ruhiyatini botqoqqa botiradi"""
     
-    if "ulug'bek kimni sevadi" in processed:
+    if "bek kimni sevadi" in processed:
         return "Nima ishingiz bor "
     
-    if "bitta eshitaylik" in processed:
+    if "😆" in processed:
         return """
-                Koʻnglingizni menga koʻrsating —
-                Sogʻinchlar sargʻayib ketgani rostmi?
-                Pichoqlar suyakka yetgani rostmi?
-                Siz kabi dunyoga sigʻmagan ozmi?
+                😁
                 """
+    
+    if "😁" in processed:
+        return """
+                😆
+                """
+    
+    if "og'a" in processed:
+        return "Sarvarbek?"
+    
+    if "haa" in processed:
+        return "hmm"
+    
+    if 'ok' in processed:
+        return "Sog' bo'l bratishka!"
+    
+    if "😔" in processed:
+        return "xafa bo'lmang, azizim..."
+    
+    if "😢" in processed:
+        return "yig'lamang, azizim..."
     
     if "yana bitta" in processed:
         return """  Osmonning bir uchi ufqqa tutashgan,
@@ -82,12 +110,36 @@ def handle_response(text:str):
     
     if "yo'q" in processed:
         return "Nima bo'ldi? Tinchlikmi?"
+    
+    if "opam" in processed:
+        return "Abdulhafiyz, senmisan uka, nimaga botga bunaqa narsalarni yozyapsan"
 
-    if "yaxshi" in processed:
+    if "yaxshima" in processed:
         return "Yaxshi ekaningni eshitib xursand bo'ldim."
+    
+    if "yaxshimis" in processed:
+        return "Yaxshi rahmat"
+    
+    if "bek yaxshimi" in processed:
+        return "Otdek"
     
     if "savol berib ham bo'lmaydimi" in processed:
         return "Savol berish mumkin, lekin ayrim narsalar haqida so'rash odobsizlikka kiradi"
+
+    if "rost" in processed:
+        return "Bilardim..."
+
+    if "hop" in processed:
+        return "Xo'p deb yoziladi"
+    
+    if "xo'p" in processed:
+        return "Biliming chakkimas"
+    
+    if "rahmat" in processed:
+        return "Sog' bo'l"
+    
+    if "kechir" in processed:
+        return "Juda madaniyatli ekansan"
 
     if "fuc"  in processed:
         return "So'kinma, betarbiya..."
@@ -110,8 +162,6 @@ def handle_response(text:str):
     if "pul kerak" in processed:
         return "Eey jiyan, kimga ham pul kerakmas."
 
-    if "opam" in processed:
-        return "Abdulhafiyz, senmisan uka, nimaga botga bunaqa narsalarni yozyapsan"
        
     if "jigar" in processed:
         return "Yaxshiman jigar, eeh sanam yo'q bo'b ketding 'jigar,jigar' deb"
@@ -119,14 +169,29 @@ def handle_response(text:str):
     if "uylangan" in processed:
         return "Yo'q, haliyam yolg'iz, sevgani ham yo'q"
     
-    if "ha bo'pti" in processed:
-        return "Jahl qilma eee"
+    if "alaykum" in processed:
+        return "Va alaykum assalom"
     
+    if "masalan" in processed:
+        return "tarkibida rahmat, kechiring yoki sevgi kabi so'zlar bo'lsa"
+    
+    if "bek qayerda" in processed:
+        return "O'qchida"
+    
+    if "bek hozir qayerda" in processed:
+        return "O'qchida"
+
+    if "misol uchun" in processed:
+        return "tarkibida rahmat, kechiring yoki sevgi kabi so'zlar bo'lsa"
+
     if "pul" == processed:
         return "Qanaqa pul?"
 
     if "tog'a" in processed:
         return "Nima deysan, jiyan?"
+    
+    if "kotibasi emas" in processed:
+        return "Kotiba noqulayliklar tug'dirishi mumkin"
     
     return "Men ba'zi gaplarga javob bera olaman, xolos, azizim..."
 
@@ -143,6 +208,10 @@ async def handle_message(update:Update,context: ContextTypes.DEFAULT_TYPE):
             response: str = handle_response(new_text)
         else:
             return 'goo'
+    elif update.message.chat.id == 1120038833:
+            response: str = handle_sarvar(text)
+    elif update.message.chat.id == 5409405494:
+            response: str = handle_me(text)
     else:
         response: str = handle_response(text)
 
@@ -161,6 +230,7 @@ if __name__ == '__main__':
     app.add_handler(CommandHandler('start',start_command))
     app.add_handler(CommandHandler('help',help_command))
     app.add_handler(CommandHandler('just',just_command))
+    app.add_handler(CommandHandler('rostmi',rostmi_command))
 
     app.add_handler(MessageHandler(filters.TEXT,handle_message))
 
