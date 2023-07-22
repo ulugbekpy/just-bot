@@ -42,19 +42,6 @@ async def rostmi_command(update:Update,context:ContextTypes.DEFAULT_TYPE):
    
 
 # Responses
-def handle_boy(text:str):
-    return "Abdug'ani? Nima gap patsan? Endi sizga hozircha faqat shunday javob beraman..."
-
-def handle_sarvar(text:str):
-    return "Sarvarbek nima gap uka? Nima deb yozsezam shu javob qayto'radi endi."
-
-def handle_me(text:str):
-    return "Sen qanaqa odamsan o'zi?"
-
-def handle_Abdulhafiyz(text:str):
-    return """Ukam, xafa bo'lish yo'q. Bu bot senga faqat shunday javob beradi.
-    Opam desang ham, boshqa gap yozsang ham..."""
-
 def handle_response(text:str):
     processed: str = text.lower()
 
@@ -212,14 +199,6 @@ async def handle_message(update:Update,context: ContextTypes.DEFAULT_TYPE):
             response: str = handle_response(new_text)
         else:
             return 'goo'
-    elif update.message.chat.id == 1120038833:
-            response: str = handle_sarvar(text)
-    elif update.message.chat.id == 1051390907:
-            response: str = handle_boy(text)
-    elif update.message.chat.id == 5409405494:
-            response: str = handle_me(text)
-    elif update.message.chat.id == 5178629757:
-            response: str = handle_Abdulhafiyz(text)
     else:
         response: str = handle_response(text)
 
