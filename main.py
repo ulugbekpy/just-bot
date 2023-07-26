@@ -51,8 +51,9 @@ def handle_response(text:str):
     if "qachon" in processed:
         return "Ha endi, hamma narsaning ham o'z vaqti soati bor."
     
-    if "sevgan" in processed:
-        return "Eee so'ramang. M...... degan qizni sevgan."
+     
+    if "mahkammi" in processed:
+        return "Mahkam"
     
     if "ma ish" in processed:
         return "Dasturchilik qilib rizqini terib yuribdi..."
